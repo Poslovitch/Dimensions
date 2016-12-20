@@ -120,6 +120,94 @@ public class BiomeGenerationRules {
 	 */
 	public List<TerrainType> getTerrainTypes(){return this.terrainTypes;}
 	
+	/**
+	 * Set if caves should be generated in this biome (default is <strong>true</strong>)
+	 * @param caves : true or false
+	 */
+	public void setGenerateCaves(boolean caves){this.caves = caves;}
+	
+	/**
+	 * @return if caves should be generated in the biome
+	 */
+	public boolean generateCaves(){return this.caves;}
+	
+	/**
+	 * Set if ravines should be generated in this biome (default is <strong>true</strong>)
+	 * @param ravines : true or false
+	 */
+	public void setGenerateRavines(boolean ravines){this.ravines = ravines;}
+	
+	/**
+	 * @return if ravines should be generated in the biome
+	 */
+	public boolean generateRavines(){return this.ravines;}
+	
+	/**
+	 * Set if mineshafts should be generated in this biome (default is <strong>true</strong>)
+	 * @param mineshafts : true or false
+	 */
+	public void setGenerateMineshafts(boolean mineshafts){this.mineshafts = mineshafts;}
+	
+	/**
+	 * @return if mineshafts should be generated in the biome
+	 */
+	public boolean generateMineshafts(){return this.mineshafts;}
+	
+	/**
+	 * Set if villages should be generated in this biome (default is <strong>true</strong>)
+	 * @param villages : true or false
+	 */
+	public void setGenerateVillages(boolean villages){this.villages = villages;}
+	
+	/**
+	 * @return if villages should be generated in the biome
+	 */
+	public boolean generateVillages(){return this.villages;}
+	
+	/**
+	 * Set if dungeons should be generated in this biome (default is <strong>true</strong>)
+	 * @param dungeons : true or false
+	 */
+	public void setGenerateDungeons(boolean dungeons){this.dungeons = dungeons;}
+	
+	/**
+	 * @return if dungeons should be generated in the biome
+	 */
+	public boolean generateDungeons(){return this.dungeons;}
+	
+	/**
+	 * Set if temples should be generated in this biome (default is <strong>true</strong>)
+	 * @param temples : true or false
+	 */
+	public void setGenerateTemples(boolean temples){this.temples = temples;}
+	
+	/**
+	 * @return if temples should be generated in the biome
+	 */
+	public boolean generateTemples(){return this.temples;}
+	
+	/**
+	 * Set if waterLakes should be generated in this biome (default is <strong>true</strong>)
+	 * @param waterLakes : true or false
+	 */
+	public void setGenerateWaterLakes(boolean waterLakes){this.waterLakes = waterLakes;}
+	
+	/**
+	 * @return if waterLakes should be generated in the biome
+	 */
+	public boolean generateWaterLakes(){return this.waterLakes;}
+	
+	/**
+	 * Set if lavaLakes should be generated in this biome (default is <strong>true</strong>)
+	 * @param lavaLakes : true or false
+	 */
+	public void setGenerateLavaLakes(boolean lavaLakes){this.lavaLakes = lavaLakes;}
+	
+	/**
+	 * @return if lavaLakes should be generated in the biome
+	 */
+	public boolean generateLavaLakes(){return this.lavaLakes;}
+	
 	public enum Erosion{
 		NONE, LIGHT, SMOOTH, HARD;
 	}

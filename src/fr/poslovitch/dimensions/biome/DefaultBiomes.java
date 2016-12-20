@@ -20,18 +20,12 @@ import fr.poslovitch.dimensions.generator.TerrainType;
  */
 public class DefaultBiomes {
 
-	public static final DBiome ALPINE = new DBiome(BiomeOwner.DIMENSIONS, "ALPINE", Biome.ICE_MOUNTAINS, Climate.ICY,
-			32, Arrays.asList(TerrainType.MOUNTAIN),
-			new BiomeGenerationRules(true, false, false, false, false, false, false, false, new MaterialData(Material.GRASS), 2, new ArrayList<>(), 0, new ArrayList<>(), 0, Arrays.asList(new MaterialData(Material.LONG_GRASS)), Vegetation.NONE, Erosion.SMOOTH, coalVeinSize, coalVeinTries, coalMinHeight, coalMaxHeight, ironVeinSize, ironVeinTries, ironMinHeight, ironMaxHeight, lapisVeinSize, lapisVeinTries, lapisMinHeight, lapisMaxHeight, goldVeinSize, goldVeinTries, goldMinHeight, goldMaxHeight, redstoneVeinSize, redstoneVeinTries, redstoneMinHeight, redstoneMaxHeight, diamondVeinSize, diamondVeinTries, diamondMinHeight, diamondMaxHeight, emeraldVeinSize, emeraldVeinTries, emeraldMinHeight, emeraldMaxHeight),
-			true);
+	public static final DBiome ALPINE;
 	public static final DBiome BAMBOO_FOREST;
 	public static final DBiome BAMBOO_GROVE;
 	public static final DBiome BOREAL_FOREST;
 	public static final DBiome BOREAL_PLATEAU;
-	public static final DBiome COLD_DESERT = new DBiome(BiomeOwner.DIMENSIONS, "COLD_DESERT", Biome.ICE_FLATS, Climate.COLD,
-			32, Arrays.asList(TerrainType.MEADOW, TerrainType.PLAINS, TerrainType.DESERT), 
-			new BiomeGenerationRules(caves, ravines, mineshafts, villages, temples, dungeons, waterLakes, lavaLakes, ground, averageGroundLayer, treeTypes, averageTrees, structures, averageStructures, vegetation, vegetationDistribution, erosion, coalVeinSize, coalVeinTries, coalMinHeight, coalMaxHeight, ironVeinSize, ironVeinTries, ironMinHeight, ironMaxHeight, lapisVeinSize, lapisVeinTries, lapisMinHeight, lapisMaxHeight, goldVeinSize, goldVeinTries, goldMinHeight, goldMaxHeight, redstoneVeinSize, redstoneVeinTries, redstoneMinHeight, redstoneMaxHeight, diamondVeinSize, diamondVeinTries, diamondMinHeight, diamondMaxHeight, emeraldVeinSize, emeraldVeinTries, emeraldMinHeight, emeraldMaxHeight),
-			true);
+	public static final DBiome COLD_DESERT;
 	public static final DBiome CONIFEROUS_FOREST;
 	public static final DBiome DEAD_FOREST;
 	public static final DBiome DEAD_SWAMP;
@@ -80,7 +74,7 @@ public class DefaultBiomes {
 	public static final DBiome TUNDRA;
 	public static final DBiome VOLCANIC_ISLAND;
 	public static final DBiome VOLCANO;
-	public static final DBiome WASTELAND = new DBiome(BiomeOwner.DIMENSIONS, "WASTELAND", Biome.DESERT, Climate.WASTELAND, 20, Arrays.asList(TerrainType.MEADOW), null, false);
+	public static final DBiome WASTELAND;
 	public static final DBiome WETLAND;
 	public static final DBiome WOODLAND;
 	public static final DBiome XERIC_SHRUBLAND;

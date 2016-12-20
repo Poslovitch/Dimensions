@@ -18,8 +18,9 @@ public class DBiome {
 	Climate climate;
 	BiomeGenerationRules generationRules;
 	BiomeSpawnRules spawnRules;
+	boolean poisonousWater;
 	
-	public DBiome(BiomeOwner owner, String id, Biome biome, Climate climate, BiomeGenerationRules generationRules, BiomeSpawnRules spawnRules){
+	public DBiome(BiomeOwner owner, String id, Biome biome, Climate climate, BiomeGenerationRules generationRules, BiomeSpawnRules spawnRules, boolean poisonousWater){
 		
 	}
 }
