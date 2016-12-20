@@ -1,14 +1,13 @@
 package fr.poslovitch.dimensions.biome;
 
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 
 import org.bukkit.Material;
 import org.bukkit.material.MaterialData;
 
 import fr.poslovitch.dimensions.enums.DStructure;
 import fr.poslovitch.dimensions.enums.DTree;
+import fr.poslovitch.dimensions.generator.TerrainSettings;
 import fr.poslovitch.dimensions.generator.TerrainType;
 
 /**
@@ -19,7 +18,7 @@ import fr.poslovitch.dimensions.generator.TerrainType;
 public class BiomeGenerationRules{
 	
 	private int averageSizeInChunks;
-	private List<TerrainType> terrainTypes;
+	private HashMap<TerrainType, TerrainSettings> terrain;
 	private boolean caves, ravines, fossils;
 	private boolean mineshafts, villages, temples, dungeons;
 	private boolean waterLakes, lavaLakes;
@@ -33,7 +32,6 @@ public class BiomeGenerationRules{
 	private Vegetation vegetationDistribution;
 	private boolean vegetationOnCliffs;
 	private Erosion erosion;
-	private Relief relief;
 	
 	private int coalVeinSize, coalVeinTries, coalMinHeight, coalMaxHeight;
 	private int ironVeinSize, ironVeinTries, ironMinHeight, ironMaxHeight;
@@ -51,7 +49,7 @@ public class BiomeGenerationRules{
 	 */
 	public BiomeGenerationRules(){
 		this.averageSizeInChunks = 32;
-		this.terrainTypes = Arrays.asList(TerrainType.PLAINS);
+		this.terrain = new HashMap<>();
 		this.caves = true;
 		this.ravines = true;
 		this.fossils = true;
@@ -71,7 +69,6 @@ public class BiomeGenerationRules{
 		this.vegetationDistribution = Vegetation.NORMAL;
 		this.vegetationOnCliffs = false;
 		this.erosion = Erosion.NONE;
-		this.relief = Relief.NORMAL;
 		this.coalVeinSize = 17;
 		this.coalVeinTries = 20;
 		this.coalMinHeight = 0;
@@ -114,15 +111,15 @@ public class BiomeGenerationRules{
 	public int getAverageSizeInChunks(){return this.averageSizeInChunks;}
 	
 	/**
-	 * Set the biome's terrain types (default is <strong>only PLAINS</strong>)
-	 * @param types : the terrain types list
+	 * Set the biome's terrain (default is <strong>empty</strong>)
+	 * @param types : the terrain map
 	 */
-	public void setTerrainTypes(List<TerrainType> types){this.terrainTypes = types;}
+	public void setTerrainTypes(HashMap<TerrainType, TerrainSettings> terrain){this.terrain = terrain;}
 	
 	/**
-	 * @return the biome's terrain types list
+	 * @return the biome's terrain map
 	 */
-	public List<TerrainType> getTerrainTypes(){return this.terrainTypes;}
+	public HashMap<TerrainType, TerrainSettings> getTerrain(){return this.terrain;}
 	
 	/**
 	 * Set if caves should be generated in this biome (default is <strong>true</strong>)
@@ -292,10 +289,6 @@ public class BiomeGenerationRules{
 	
 	public Erosion getErosion(){return this.erosion;}
 	
-	public void setRelief(Relief relief){this.relief = relief;}
-	
-	public Relief getRelief(){return this.relief;}
-	
 	public void setCoalSettings(int veinSize, int veinTries, int minHeight, int maxHeight){
 		this.coalVeinSize = veinSize;
 		this.coalVeinTries = veinTries;
@@ -421,9 +414,5 @@ public class BiomeGenerationRules{
 	
 	public enum Vegetation{
 		NONE, DISSEMINATED, NORMAL, ABUNDANT;
-	}
-	
-	public enum Relief{
-		LOW, NORMAL, HIGH;
 	}
 }
