@@ -44,10 +44,10 @@ public class ErosionCalculator {
 	/**
 	 * Returns the result of the specified MaterialData due to erosion.
 	 * @param origin - the original MaterialData which will be eroded.
-	 * @return the eroded MaterialData or null if the specified MaterialData cannot be eroded.
+	 * @return the eroded MaterialData or origin if the specified MaterialData cannot be eroded.
 	 * @version 1.0
 	 */
 	public static MaterialData getErosion(MaterialData origin){
-		return (erosionMap.containsKey(origin)) ? erosionMap.get(origin) : null;
+		return (erosionMap.containsKey(origin)) ? erosionMap.get(origin) : origin;
 	}
 }

@@ -1,6 +1,5 @@
-package fr.poslovitch.dimensions.generator;
+package fr.poslovitch.dimensions.biome;
 
-import java.io.Serializable;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -10,18 +9,14 @@ import org.bukkit.material.MaterialData;
 
 import fr.poslovitch.dimensions.enums.DStructure;
 import fr.poslovitch.dimensions.enums.DTree;
+import fr.poslovitch.dimensions.generator.TerrainType;
 
 /**
  * This object handles every option to generate a biome.
  * @author Poslovitch
  * @version 1.0
  */
-public class BiomeGenerationRules implements Serializable{
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 12742636146960506L;
+public class BiomeGenerationRules{
 	
 	private int averageSizeInChunks;
 	private List<TerrainType> terrainTypes;
