@@ -5,6 +5,11 @@ import java.util.HashMap;
 import org.bukkit.Material;
 import org.bukkit.material.MaterialData;
 
+/**
+ * 
+ * @author Poslovitch
+ * @version 1.0
+ */
 public class ErosionCalculator {
 
 	private static HashMap<MaterialData, MaterialData> erosionMap = new HashMap<>();

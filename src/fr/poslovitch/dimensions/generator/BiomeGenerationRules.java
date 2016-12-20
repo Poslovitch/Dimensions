@@ -1,7 +1,10 @@
 package fr.poslovitch.dimensions.generator;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
+import org.bukkit.Material;
 import org.bukkit.material.MaterialData;
 
 import fr.poslovitch.dimensions.enums.DStructure;
@@ -14,81 +17,108 @@ import fr.poslovitch.dimensions.enums.DTree;
  */
 public class BiomeGenerationRules {
 	
-	boolean caves, ravines;
-	boolean mineshafts, villages, temples, dungeons;
-	boolean waterLakes, lavaLakes;
-	MaterialData ground;
-	int averageGroundLayer;
-	List<DTree> treeTypes;
-	int averageTrees;
-	List<DStructure> structures;
-	int averageStructures;
-	List<MaterialData> vegetation;
-	Vegetation vegetationDistribution;
-	Erosion erosion;
+	private int averageSizeInChunks;
+	private List<TerrainType> terrainTypes;
+	private boolean caves, ravines;
+	private boolean mineshafts, villages, temples, dungeons;
+	private boolean waterLakes, lavaLakes;
+	private MaterialData ground;
+	private int averageGroundLayer;
+	private List<DTree> treeTypes;
+	private int averageTrees;
+	private List<DStructure> structures;
+	private int averageStructures;
+	private List<MaterialData> vegetation;
+	private Vegetation vegetationDistribution;
+	private Erosion erosion;
+	private Relief relief;
 	
-	int coalVeinSize, coalVeinTries, coalMinHeight, coalMaxHeight;
-	int ironVeinSize, ironVeinTries, ironMinHeight, ironMaxHeight;
-	int lapisVeinSize, lapisVeinTries, lapisMinHeight, lapisMaxHeight;
-	int goldVeinSize, goldVeinTries, goldMinHeight, goldMaxHeight;
-	int redstoneVeinSize, redstoneVeinTries, redstoneMinHeight, redstoneMaxHeight;
-	int diamondVeinSize, diamondVeinTries, diamondMinHeight, diamondMaxHeight;
-	int emeraldVeinSize, emeraldVeinTries, emeraldMinHeight, emeraldMaxHeight;
+	private int coalVeinSize, coalVeinTries, coalMinHeight, coalMaxHeight;
+	private int ironVeinSize, ironVeinTries, ironMinHeight, ironMaxHeight;
+	private int lapisVeinSize, lapisVeinTries, lapisMinHeight, lapisMaxHeight;
+	private int goldVeinSize, goldVeinTries, goldMinHeight, goldMaxHeight;
+	private int redstoneVeinSize, redstoneVeinTries, redstoneMinHeight, redstoneMaxHeight;
+	private int diamondVeinSize, diamondVeinTries, diamondMinHeight, diamondMaxHeight;
+	private int emeraldVeinSize, emeraldVeinTries, emeraldMinHeight, emeraldMaxHeight;
 	
-	public BiomeGenerationRules(boolean caves, boolean ravines, boolean mineshafts, boolean villages, boolean temples, boolean dungeons,
-			boolean waterLakes, boolean lavaLakes, MaterialData ground, int averageGroundLayer, List<DTree> treeTypes, int averageTrees,
-			List<DStructure> structures, int averageStructures, List<MaterialData> vegetation, Vegetation vegetationDistribution, Erosion erosion, int coalVeinSize, int coalVeinTries,
-			int coalMinHeight, int coalMaxHeight, int ironVeinSize, int ironVeinTries, int ironMinHeight, int ironMaxHeight, int lapisVeinSize,
-			int lapisVeinTries, int lapisMinHeight, int lapisMaxHeight, int goldVeinSize, int goldVeinTries, int goldMinHeight, int goldMaxHeight,
-			int redstoneVeinSize, int redstoneVeinTries, int redstoneMinHeight, int redstoneMaxHeight, int diamondVeinSize, int diamondVeinTries,
-			int diamondMinHeight, int diamondMaxHeight, int emeraldVeinSize, int emeraldVeinTries, int emeraldMinHeight, int emeraldMaxHeight){
-		
-		this.caves = caves;
-		this.ravines = ravines;
-		this.mineshafts = mineshafts;
-		this.villages = villages;
-		this.temples = temples;
-		this.dungeons = dungeons;
-		this.waterLakes = waterLakes;
-		this.lavaLakes = lavaLakes;
-		this.ground = ground;
-		this.averageGroundLayer = averageGroundLayer;
-		this.treeTypes = treeTypes;
-		this.averageTrees = averageTrees;
-		this.structures = structures;
-		this.averageStructures = averageStructures;
-		this.vegetation = vegetation;
-		this.vegetationDistribution = vegetationDistribution;
-		this.erosion = erosion;
-		this.coalVeinSize = coalVeinSize;
-		this.coalVeinTries = coalVeinTries;
-		this.coalMinHeight = coalMinHeight;
-		this.coalMaxHeight = coalMaxHeight;
-		this.ironVeinSize = ironVeinSize;
-		this.ironVeinTries = ironVeinTries;
-		this.ironMinHeight = ironMinHeight;
-		this.ironMaxHeight = ironMaxHeight;
-		this.lapisVeinSize = lapisVeinSize;
-		this.lapisVeinTries = lapisVeinTries;
-		this.lapisMinHeight = lapisMinHeight;
-		this.lapisMaxHeight = lapisMaxHeight;
-		this.goldVeinSize = goldVeinSize;
-		this.goldVeinTries = goldVeinTries;
-		this.goldMinHeight = goldMinHeight;
-		this.goldMaxHeight = goldMaxHeight;
-		this.redstoneVeinSize = redstoneVeinSize;
-		this.redstoneVeinTries = redstoneVeinTries;
-		this.redstoneMinHeight = redstoneMinHeight;
-		this.redstoneMaxHeight = redstoneMaxHeight;
-		this.diamondVeinSize = diamondVeinSize;
-		this.diamondVeinTries = diamondVeinTries;
-		this.diamondMinHeight = diamondMinHeight;
-		this.diamondMaxHeight = diamondMaxHeight;
-		this.emeraldVeinSize = emeraldVeinSize;
-		this.emeraldVeinTries = emeraldVeinTries;
-		this.emeraldMinHeight = emeraldMinHeight;
-		this.emeraldMaxHeight = emeraldMaxHeight;
+	/**
+	 * Instantiate a BiomeGenerationRules object, who stores all informations about the DBiome's generation.
+	 * <p>
+	 * All values will be set to default. Modify what you want using the setters methods.
+	 * @version 1.0
+	 */
+	public BiomeGenerationRules(){
+		this.averageSizeInChunks = 32;
+		this.terrainTypes = Arrays.asList(TerrainType.PLAINS);
+		this.caves = true;
+		this.ravines = true;
+		this.mineshafts = true;
+		this.villages = true;
+		this.temples = true;
+		this.dungeons = true;
+		this.waterLakes = true;
+		this.lavaLakes = true;
+		this.ground = new MaterialData(Material.GRASS);
+		this.averageGroundLayer = 3;
+		this.treeTypes = new ArrayList<>();
+		this.averageTrees = 0;
+		this.structures = new ArrayList<>();
+		this.averageStructures = 0;
+		this.vegetation = new ArrayList<>();
+		this.vegetationDistribution = Vegetation.NORMAL;
+		this.erosion = Erosion.NONE;
+		this.relief = Relief.NORMAL;
+		this.coalVeinSize = 17;
+		this.coalVeinTries = 20;
+		this.coalMinHeight = 0;
+		this.coalMaxHeight = 128;
+		this.ironVeinSize = 9;
+		this.ironVeinTries = 20;
+		this.ironMinHeight = 0;
+		this.ironMaxHeight = 64;
+		this.lapisVeinSize = 7;
+		this.lapisVeinTries = 1;
+		this.lapisMinHeight = 0;
+		this.lapisMaxHeight = 32;
+		this.goldVeinSize = 9;
+		this.goldVeinTries = 2;
+		this.goldMinHeight = 0;
+		this.goldMaxHeight = 32;
+		this.redstoneVeinSize = 8;
+		this.redstoneVeinTries = 8;
+		this.redstoneMinHeight = 0;
+		this.redstoneMaxHeight = 16;
+		this.diamondVeinSize = 8;
+		this.diamondVeinTries = 1;
+		this.diamondMinHeight = 0;
+		this.diamondMaxHeight = 16;
+		this.emeraldVeinSize = 1;
+		this.emeraldVeinTries = 1;
+		this.emeraldMinHeight = 0;
+		this.emeraldMaxHeight = 16;
 	}
+	
+	/**
+	 * Set the biome's average size in chunks (default is <strong>32</strong>)
+	 * @param size : the size in chunks
+	 */
+	public void setAverageSizeInChunks(int size){this.averageSizeInChunks = size;}
+	
+	/**
+	 * @return the biome's average size in chunks
+	 */
+	public int getAverageSizeInChunks(){return this.averageSizeInChunks;}
+	
+	/**
+	 * Set the biome's terrain types (default is <strong>only PLAINS</strong>)
+	 * @param types : the terrain types list
+	 */
+	public void setTerrainTypes(List<TerrainType> types){this.terrainTypes = types;}
+	
+	/**
+	 * @return the biome's terrain types list
+	 */
+	public List<TerrainType> getTerrainTypes(){return this.terrainTypes;}
 	
 	public enum Erosion{
 		NONE, LIGHT, SMOOTH, HARD;
@@ -99,6 +129,6 @@ public class BiomeGenerationRules {
 	}
 	
 	public enum Relief{
-		SMOOTH, NORMAL, ROUGH;
+		LOW, NORMAL, HIGH;
 	}
 }

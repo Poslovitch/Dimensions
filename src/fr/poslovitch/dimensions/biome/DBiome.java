@@ -1,12 +1,9 @@
 package fr.poslovitch.dimensions.biome;
 
-import java.util.List;
-
 import org.bukkit.block.Biome;
 
 import fr.poslovitch.dimensions.enums.Climate;
 import fr.poslovitch.dimensions.generator.BiomeGenerationRules;
-import fr.poslovitch.dimensions.generator.TerrainType;
 
 /**
  * 
@@ -19,12 +16,10 @@ public class DBiome {
 	String id;
 	Biome biome;
 	Climate climate;
-	int averageSizeInChunks;
-	List<TerrainType> terrainTypes;
-	BiomeGenerationRules rules;
-	boolean canEntitySpawn;
+	BiomeGenerationRules generationRules;
+	BiomeSpawnRules spawnRules;
 	
-	public DBiome(BiomeOwner owner, String id, Biome biome, Climate climate, int averageSizeInChunks, List<TerrainType> terrainTypes, BiomeGenerationRules rules, boolean canEntitySpawn){
+	public DBiome(BiomeOwner owner, String id, Biome biome, Climate climate, BiomeGenerationRules generationRules, BiomeSpawnRules spawnRules){
 		
 	}
 }
