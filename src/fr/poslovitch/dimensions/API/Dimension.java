@@ -7,7 +7,7 @@ package fr.poslovitch.dimensions.API;
  */
 public class Dimension {
 
-	public Dimension(String name, DimensionGenerator generator, Portal portal, boolean lavaOceans){
+	public Dimension(String name, DimensionGenerator generator, Portal portal, boolean lavaLakesAndOceans){
 		
 	}
 }

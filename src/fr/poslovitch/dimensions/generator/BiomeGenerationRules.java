@@ -1,5 +1,6 @@
 package fr.poslovitch.dimensions.generator;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -15,11 +16,16 @@ import fr.poslovitch.dimensions.enums.DTree;
  * @author Poslovitch
  * @version 1.0
  */
-public class BiomeGenerationRules {
+public class BiomeGenerationRules implements Serializable{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 12742636146960506L;
 	
 	private int averageSizeInChunks;
 	private List<TerrainType> terrainTypes;
-	private boolean caves, ravines;
+	private boolean caves, ravines, fossils;
 	private boolean mineshafts, villages, temples, dungeons;
 	private boolean waterLakes, lavaLakes;
 	private MaterialData ground;
@@ -30,6 +36,7 @@ public class BiomeGenerationRules {
 	private int averageStructures;
 	private HashMap<MaterialData, Integer> vegetation;
 	private Vegetation vegetationDistribution;
+	private boolean vegetationOnCliffs;
 	private Erosion erosion;
 	private Relief relief;
 	
@@ -52,6 +59,7 @@ public class BiomeGenerationRules {
 		this.terrainTypes = Arrays.asList(TerrainType.PLAINS);
 		this.caves = true;
 		this.ravines = true;
+		this.fossils = true;
 		this.mineshafts = true;
 		this.villages = true;
 		this.temples = true;
@@ -66,6 +74,7 @@ public class BiomeGenerationRules {
 		this.averageStructures = 0;
 		this.vegetation = new HashMap<>();
 		this.vegetationDistribution = Vegetation.NORMAL;
+		this.vegetationOnCliffs = false;
 		this.erosion = Erosion.NONE;
 		this.relief = Relief.NORMAL;
 		this.coalVeinSize = 17;
@@ -141,6 +150,17 @@ public class BiomeGenerationRules {
 	 * @return if ravines should be generated in the biome
 	 */
 	public boolean generateRavines(){return this.ravines;}
+	
+	/**
+	 * Set if fossils should be generated in this biome (default is <strong>true</strong>)
+	 * @param fossils : true or false
+	 */
+	public void setGenerateFossils(boolean fossils){this.fossils = fossils;}
+	
+	/**
+	 * @return if fossils should be generated in the biome
+	 */
+	public boolean generateFossils(){return this.fossils;}
 	
 	/**
 	 * Set if mineshafts should be generated in this biome (default is <strong>true</strong>)
@@ -268,6 +288,10 @@ public class BiomeGenerationRules {
 	public void setVegetationDistribution(Vegetation distribution){this.vegetationDistribution = distribution;}
 	
 	public Vegetation getVegetationDistribution(){return this.vegetationDistribution;}
+
+	public void setGenerateLeavesOnCliffs(boolean leavesOnCliffs){this.vegetationOnCliffs = leavesOnCliffs;}
+	
+	public boolean generateLeavesOnCliffs(){return this.vegetationOnCliffs;}
 	
 	public void setErosion(Erosion erosion){this.erosion = erosion;}
 	

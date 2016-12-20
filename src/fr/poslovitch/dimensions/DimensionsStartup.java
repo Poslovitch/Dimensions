@@ -11,9 +11,13 @@ import fr.poslovitch.dimensions.generator.ErosionCalculator;
  */
 public class DimensionsStartup extends JavaPlugin{
 	
+	boolean firstLaunch = true;
+	
 	@Override
 	public void onEnable(){
 		// Load Erosion Map
 		new ErosionCalculator();
+		
+		if(firstLaunch){}
 	}
 }
