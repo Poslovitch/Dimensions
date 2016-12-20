@@ -6,5 +6,8 @@ package fr.poslovitch.dimensions.enums;
  * @version 1.0
  */
 public class DStructure {
-
+	
+	public DStructure(){
+		
+	}
 }

@@ -12,7 +12,6 @@ import fr.poslovitch.dimensions.generator.BiomeGenerationRules;
  */
 public class DBiome {
 	
-	BiomeOwner owner;
 	String id;
 	Biome biome;
 	Climate climate;
@@ -20,7 +19,7 @@ public class DBiome {
 	BiomeSpawnRules spawnRules;
 	boolean poisonousWater;
 	
-	public DBiome(BiomeOwner owner, String id, Biome biome, Climate climate, BiomeGenerationRules generationRules, BiomeSpawnRules spawnRules, boolean poisonousWater){
+	public DBiome(String id, Biome biome, Climate climate, BiomeGenerationRules generationRules, BiomeSpawnRules spawnRules, boolean poisonousWater){
 		
 	}
 }

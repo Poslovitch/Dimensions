@@ -1,7 +1,7 @@
 package fr.poslovitch.dimensions.generator;
 
-import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 import org.bukkit.Material;
@@ -24,11 +24,11 @@ public class BiomeGenerationRules {
 	private boolean waterLakes, lavaLakes;
 	private MaterialData ground;
 	private int averageGroundLayer;
-	private List<DTree> treeTypes;
+	private HashMap<DTree, Integer> trees;
 	private int averageTrees;
-	private List<DStructure> structures;
+	private HashMap<DStructure, Integer> structures;
 	private int averageStructures;
-	private List<MaterialData> vegetation;
+	private HashMap<MaterialData, Integer> vegetation;
 	private Vegetation vegetationDistribution;
 	private Erosion erosion;
 	private Relief relief;
@@ -60,11 +60,11 @@ public class BiomeGenerationRules {
 		this.lavaLakes = true;
 		this.ground = new MaterialData(Material.GRASS);
 		this.averageGroundLayer = 3;
-		this.treeTypes = new ArrayList<>();
+		this.trees = new HashMap<>();
 		this.averageTrees = 0;
-		this.structures = new ArrayList<>();
+		this.structures = new HashMap<>();
 		this.averageStructures = 0;
-		this.vegetation = new ArrayList<>();
+		this.vegetation = new HashMap<>();
 		this.vegetationDistribution = Vegetation.NORMAL;
 		this.erosion = Erosion.NONE;
 		this.relief = Relief.NORMAL;
@@ -207,6 +207,194 @@ public class BiomeGenerationRules {
 	 * @return if lavaLakes should be generated in the biome
 	 */
 	public boolean generateLavaLakes(){return this.lavaLakes;}
+	
+	/**
+	 * Set the ground block material (default is <strong>GRASS</strong>)
+	 * @param ground 
+	 */
+	public void setGroundMaterial(MaterialData ground){this.ground = ground;}
+	
+	/**
+	 * @return the ground material
+	 */
+	public MaterialData getGroundMaterial(){return this.ground;}
+	
+	/**
+	 * Set how many layers there is (default is <strong>3</strong>)
+	 * @param layers
+	 */
+	public void setAverageGroundLayers(int layers){this.averageGroundLayer = layers;}
+	
+	/**
+	 * @return average ground layers
+	 */
+	public int getAverageGroundLayers(){return this.averageGroundLayer;}
+	
+	/**
+	 * Set all trees that should spawn in the biome and their probabilities (default is <strong>empty</strong>)
+	 * @param trees
+	 */
+	public void setTrees(HashMap<DTree, Integer> trees){this.trees = trees;}
+	
+	/**
+	 * @return the tree types & probabilities map
+	 */
+	public HashMap<DTree, Integer> getTrees(){return this.trees;}
+	
+	/**
+	 * Set how many trees there should be in the biome on average
+	 * @param average
+	 */
+	public void setTreesOnAverage(int average){this.averageTrees = average;}
+	
+	/**
+	 * @return how many trees there should be in the biome on average
+	 */
+	public int getTreesOnAverage(){return this.averageTrees;}
+	
+	// TODO Javadoc
+	public void setStructures(HashMap<DStructure, Integer> structures){this.structures = structures;}
+	
+	public HashMap<DStructure, Integer> getStructures(){return this.structures;}
+	
+	public void setStructuresOnAverage(int average){this.averageStructures = average;}
+	
+	public int getStructuresOnAverage(){return this.averageStructures;}
+	
+	public void setVegetation(HashMap<MaterialData, Integer> vegetation){this.vegetation = vegetation;}
+	
+	public HashMap<MaterialData, Integer> getVegetation(){return this.vegetation;}
+	
+	public void setVegetationDistribution(Vegetation distribution){this.vegetationDistribution = distribution;}
+	
+	public Vegetation getVegetationDistribution(){return this.vegetationDistribution;}
+	
+	public void setErosion(Erosion erosion){this.erosion = erosion;}
+	
+	public Erosion getErosion(){return this.erosion;}
+	
+	public void setRelief(Relief relief){this.relief = relief;}
+	
+	public Relief getRelief(){return this.relief;}
+	
+	public void setCoalSettings(int veinSize, int veinTries, int minHeight, int maxHeight){
+		this.coalVeinSize = veinSize;
+		this.coalVeinTries = veinTries;
+		this.coalMinHeight = minHeight;
+		this.coalMaxHeight = maxHeight;
+	}
+	
+	public void setCoalVeinSize(int veinSize){this.coalVeinSize = veinSize;}
+	public void setCoalVeinTries(int veinTries){this.coalVeinTries = veinTries;}
+	public void setCoalMinHeight(int minHeight){this.coalMinHeight = minHeight;}
+	public void setCoalMaxHeight(int maxHeight){this.coalMaxHeight = maxHeight;}
+	
+	public int getCoalVeinSize(){return this.coalVeinSize;}
+	public int getCoalVeinTries(){return this.coalVeinTries;}
+	public int getCoalMinHeight(){return this.coalMinHeight;}
+	public int getCoalMaxHeight(){return this.coalMaxHeight;}
+	
+	public void setIronSettings(int veinSize, int veinTries, int minHeight, int maxHeight){
+		this.ironVeinSize = veinSize;
+		this.ironVeinTries = veinTries;
+		this.ironMinHeight = minHeight;
+		this.ironMaxHeight = maxHeight;
+	}
+	
+	public void setIronVeinSize(int veinSize){this.ironVeinSize = veinSize;}
+	public void setIronVeinTries(int veinTries){this.ironVeinTries = veinTries;}
+	public void setIronMinHeight(int minHeight){this.ironMinHeight = minHeight;}
+	public void setIronMaxHeight(int maxHeight){this.ironMaxHeight = maxHeight;}
+	
+	public int getIronVeinSize(){return this.ironVeinSize;}
+	public int getIronVeinTries(){return this.ironVeinTries;}
+	public int getIronMinHeight(){return this.ironMinHeight;}
+	public int getIronMaxHeight(){return this.ironMaxHeight;}
+	
+	public void setLapisSettings(int veinSize, int veinTries, int minHeight, int maxHeight){
+		this.lapisVeinSize = veinSize;
+		this.lapisVeinTries = veinTries;
+		this.lapisMinHeight = minHeight;
+		this.lapisMaxHeight = maxHeight;
+	}
+	
+	public void setLapisVeinSize(int veinSize){this.lapisVeinSize = veinSize;}
+	public void setLapisVeinTries(int veinTries){this.lapisVeinTries = veinTries;}
+	public void setLapisMinHeight(int minHeight){this.lapisMinHeight = minHeight;}
+	public void setLapisMaxHeight(int maxHeight){this.lapisMaxHeight = maxHeight;}
+	
+	public int getLapisVeinSize(){return this.lapisVeinSize;}
+	public int getLapisVeinTries(){return this.lapisVeinTries;}
+	public int getLapisMinHeight(){return this.lapisMinHeight;}
+	public int getLapisMaxHeight(){return this.lapisMaxHeight;}
+	
+	public void setGoldSettings(int veinSize, int veinTries, int minHeight, int maxHeight){
+		this.goldVeinSize = veinSize;
+		this.goldVeinTries = veinTries;
+		this.goldMinHeight = minHeight;
+		this.goldMaxHeight = maxHeight;
+	}
+	
+	public void setGoldVeinSize(int veinSize){this.goldVeinSize = veinSize;}
+	public void setGoldVeinTries(int veinTries){this.goldVeinTries = veinTries;}
+	public void setGoldMinHeight(int minHeight){this.goldMinHeight = minHeight;}
+	public void setGoldMaxHeight(int maxHeight){this.goldMaxHeight = maxHeight;}
+	
+	public int getGoldVeinSize(){return this.goldVeinSize;}
+	public int getGoldVeinTries(){return this.goldVeinTries;}
+	public int getGoldMinHeight(){return this.goldMinHeight;}
+	public int getGoldMaxHeight(){return this.goldMaxHeight;}
+	
+	public void setRedstoneSettings(int veinSize, int veinTries, int minHeight, int maxHeight){
+		this.redstoneVeinSize = veinSize;
+		this.redstoneVeinTries = veinTries;
+		this.redstoneMinHeight = minHeight;
+		this.redstoneMaxHeight = maxHeight;
+	}
+	
+	public void setRedstoneVeinSize(int veinSize){this.redstoneVeinSize = veinSize;}
+	public void setRedstoneVeinTries(int veinTries){this.redstoneVeinTries = veinTries;}
+	public void setRedstoneMinHeight(int minHeight){this.redstoneMinHeight = minHeight;}
+	public void setRedstoneMaxHeight(int maxHeight){this.redstoneMaxHeight = maxHeight;}
+	
+	public int getRedstoneVeinSize(){return this.redstoneVeinSize;}
+	public int getRedstoneVeinTries(){return this.redstoneVeinTries;}
+	public int getRedstoneMinHeight(){return this.redstoneMinHeight;}
+	public int getRedstoneMaxHeight(){return this.redstoneMaxHeight;}
+	
+	public void setDiamondSettings(int veinSize, int veinTries, int minHeight, int maxHeight){
+		this.diamondVeinSize = veinSize;
+		this.diamondVeinTries = veinTries;
+		this.diamondMinHeight = minHeight;
+		this.diamondMaxHeight = maxHeight;
+	}
+	
+	public void setDiamondVeinSize(int veinSize){this.diamondVeinSize = veinSize;}
+	public void setDiamondVeinTries(int veinTries){this.diamondVeinTries = veinTries;}
+	public void setDiamondMinHeight(int minHeight){this.diamondMinHeight = minHeight;}
+	public void setDiamondMaxHeight(int maxHeight){this.diamondMaxHeight = maxHeight;}
+	
+	public int getDiamondVeinSize(){return this.diamondVeinSize;}
+	public int getDiamondVeinTries(){return this.diamondVeinTries;}
+	public int getDiamondMinHeight(){return this.diamondMinHeight;}
+	public int getDiamondMaxHeight(){return this.diamondMaxHeight;}
+	
+	public void setEmeraldSettings(int veinSize, int veinTries, int minHeight, int maxHeight){
+		this.emeraldVeinSize = veinSize;
+		this.emeraldVeinTries = veinTries;
+		this.emeraldMinHeight = minHeight;
+		this.emeraldMaxHeight = maxHeight;
+	}
+	
+	public void setEmeraldVeinSize(int veinSize){this.emeraldVeinSize = veinSize;}
+	public void setEmeraldVeinTries(int veinTries){this.emeraldVeinTries = veinTries;}
+	public void setEmeraldMinHeight(int minHeight){this.emeraldMinHeight = minHeight;}
+	public void setEmeraldMaxHeight(int maxHeight){this.emeraldMaxHeight = maxHeight;}
+	
+	public int getEmeraldVeinSize(){return this.emeraldVeinSize;}
+	public int getEmeraldVeinTries(){return this.emeraldVeinTries;}
+	public int getEmeraldMinHeight(){return this.emeraldMinHeight;}
+	public int getEmeraldMaxHeight(){return this.emeraldMaxHeight;}
 	
 	public enum Erosion{
 		NONE, LIGHT, SMOOTH, HARD;

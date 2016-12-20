@@ -6,7 +6,7 @@ package fr.poslovitch.dimensions.enums;
  * @version 1.0
  */
 public class DTree {
-	
+		
 	public static final DTree OAK = new DTree();
 	public static final DTree DEAD = new DTree();
 	
