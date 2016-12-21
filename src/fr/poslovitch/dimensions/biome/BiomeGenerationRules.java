@@ -114,7 +114,7 @@ public class BiomeGenerationRules{
 	 * Set the biome's terrain (default is <strong>empty</strong>)
 	 * @param types : the terrain map
 	 */
-	public void setTerrainTypes(HashMap<TerrainType, TerrainSettings> terrain){this.terrain = terrain;}
+	public void setTerrain(HashMap<TerrainType, TerrainSettings> terrain){this.terrain = terrain;}
 	
 	/**
 	 * @return the biome's terrain map

@@ -9,13 +9,13 @@ public class TerrainSettings {
 
 	public TerrainSettings(){}
 
-	public double averageHeight = 0.0D;
-	public double variationBelow = 0.0D;
-	public double variationAbove = 0.0D;
-	public double sidewaysNoiseAmount = 0.0D;
-	public double[] octaveWeights = new double[] {0.0D, 0.0D, 0.0D, 0.0D, 0.0D, 0.0D};        
-	public double minHeight = 0.0D;
-	public double maxHeight = 255.0D;
+	private double averageHeight = 0.0D;
+	private double variationBelow = 0.0D;
+	private double variationAbove = 0.0D;
+	private double sidewaysNoiseAmount = 0.0D;
+	private double[] octaveWeights = new double[] {0.0D, 0.0D, 0.0D, 0.0D, 0.0D, 0.0D};        
+	private double minHeight = 0.0D;
+	private double maxHeight = 255.0D;
 
 	public TerrainSettings setDefaults(){
 		this.averageHeight = 64.0D;
