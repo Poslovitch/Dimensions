@@ -1,6 +1,10 @@
 package fr.poslovitch.dimensions.biome;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.bukkit.block.Biome;
+import org.bukkit.potion.PotionEffect;
 
 import fr.poslovitch.dimensions.enums.Climate;
 
@@ -16,26 +20,31 @@ public class DBiome{
 	Climate climate;
 	BiomeGenerationRules generationRules;
 	BiomeSpawnRules spawnRules;
-	boolean poisonousWater, allowRivers;
+	boolean allowRivers;
+	List<PotionEffect> permanentEffects, skyExposureEffects, waterEffects;
 	
-	public DBiome(String id, Biome biome, Climate climate, boolean poisonousWater, boolean allowRivers){
+	public DBiome(String id, Biome biome, Climate climate, boolean allowRivers){
 		this.id = id;
 		this.biome = biome;
 		this.climate = climate;
 		this.generationRules = new BiomeGenerationRules();
 		this.spawnRules = new BiomeSpawnRules();
-		this.poisonousWater = poisonousWater;
 		this.allowRivers = allowRivers;
+		this.permanentEffects = new ArrayList<>();
+		this.skyExposureEffects = new ArrayList<>();
+		this.waterEffects = new ArrayList<>();
 	}
 	
-	public DBiome(String id, Biome biome, Climate climate, BiomeGenerationRules generationRules, BiomeSpawnRules spawnRules, boolean poisonousWater, boolean allowRivers){
+	public DBiome(String id, Biome biome, Climate climate, BiomeGenerationRules generationRules, BiomeSpawnRules spawnRules, boolean allowRivers){
 		this.id = id;
 		this.biome = biome;
 		this.climate = climate;
 		this.generationRules = generationRules;
 		this.spawnRules = spawnRules;
-		this.poisonousWater = poisonousWater;
 		this.allowRivers = allowRivers;
+		this.permanentEffects = new ArrayList<>();
+		this.skyExposureEffects = new ArrayList<>();
+		this.waterEffects = new ArrayList<>();
 	}
 	
 	public void setID(String id){this.id = id;}
@@ -53,9 +62,15 @@ public class DBiome{
 	public void setBiomeSpawnRules(BiomeSpawnRules spawnRules){this.spawnRules = spawnRules;}
 	public BiomeSpawnRules getBiomeSpawnRules(){return this.spawnRules;}
 	
-	public void setWaterPoisonous(boolean poisonousWater){this.poisonousWater = poisonousWater;}
-	public boolean isWaterPoisonous(){return this.poisonousWater;}
-	
 	public void setAllowRivers(boolean allowRivers){this.allowRivers = allowRivers;}
 	public boolean allowRivers(){return this.allowRivers;}
+	
+	public void setPermanentEffects(List<PotionEffect> effects){this.permanentEffects = effects;}
+	public List<PotionEffect> getPermanentEffects(){return this.permanentEffects;}
+	
+	public void setSkyExposureEffects(List<PotionEffect> effects){this.skyExposureEffects = effects;}
+	public List<PotionEffect> getSkyExposureEffects(){return this.skyExposureEffects;}
+	
+	public void setWaterEffects(List<PotionEffect> effects){this.waterEffects = effects;}
+	public List<PotionEffect> getWaterEffects(){return this.waterEffects;}
 }

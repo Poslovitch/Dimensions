@@ -12,6 +12,7 @@ public class Dimension {
 	String name;
 	DimensionGenerator generator;
 	Portal portal;
+	//TODO time (eternal day/night, day/night durations...)
 	
 	public Dimension(String name, DimensionGenerator generator, Portal portal){
 		this.name = name;

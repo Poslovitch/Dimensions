@@ -2,7 +2,7 @@ package fr.poslovitch.dimensions.generator;
 
 /**
  * 
- * @author Poslovitch
+ * @author Glitchfield (Biomes O'Plenty developer : this class mainly comes from BOP)
  * @version 1.0
  */
 public class TerrainSettings {
