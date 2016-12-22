@@ -8,7 +8,7 @@ package fr.poslovitch.dimensions.API.portals;
 public class Portal {
 
 	public enum PortalType{
-		WALL_PORTAL, GROUND_PORTAL;
+		WALL_PORTAL, GROUND_PORTAL, ITEM;
 	}
 	
 	PortalType type;

@@ -7,9 +7,12 @@ package fr.poslovitch.dimensions.API.portals;
  */
 public class PortalBuild extends Portal{
 
-	public PortalBuild(PortalType type, PortalFrame frame) {
+	PortalPattern pattern;
+	
+	public PortalBuild(PortalType type, PortalPattern pattern) {
 		super(type);
-		
+		this.pattern = pattern;
 	}
 
+	public PortalPattern getPattern(){return this.pattern;}
 }
