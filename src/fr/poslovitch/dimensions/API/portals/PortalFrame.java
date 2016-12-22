@@ -1,6 +1,5 @@
 package fr.poslovitch.dimensions.API.portals;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -14,7 +13,7 @@ import org.bukkit.material.MaterialData;
 public class PortalFrame {
 	
 	// Pattern
-	List<String> frame = new ArrayList<String>();
+	ArrayList<String> frame = new ArrayList<String>();
 	// Materials
 	HashMap<Character, MaterialData> materials = new HashMap<Character, MaterialData>();
 	// Activator
