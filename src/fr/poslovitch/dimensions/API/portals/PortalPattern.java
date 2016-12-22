@@ -2,7 +2,6 @@ package fr.poslovitch.dimensions.API.portals;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 import org.bukkit.material.MaterialData;
 
@@ -14,7 +13,7 @@ import org.bukkit.material.MaterialData;
 public class PortalPattern {
 	
 	// Pattern
-	List<String> pattern = new ArrayList<String>();
+	ArrayList<String> pattern = new ArrayList<String>();
 	// Materials
 	HashMap<Character, MaterialData> materials = new HashMap<Character, MaterialData>();
 	// Activator
@@ -35,7 +34,7 @@ public class PortalPattern {
 		this.materials.put(ch, match);
 	}
 	
-	public List<String> getPattern(){return this.pattern;}
+	public ArrayList<String> getPattern(){return this.pattern;}
 	public HashMap<Character, MaterialData> getMatching(){return this.materials;}
 	public char getActivatorChar(){return this.activator;}
 	public MaterialData getActivatorType(){return this.activatorType;}
