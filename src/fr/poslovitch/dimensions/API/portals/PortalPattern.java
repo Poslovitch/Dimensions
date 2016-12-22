@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import org.bukkit.inventory.ItemStack;
 import org.bukkit.material.MaterialData;
 
 /**
@@ -21,7 +20,6 @@ public class PortalPattern {
 	// Activator
 	char activator;
 	MaterialData activatorType;
-	ItemStack activatorItem;
 	
 	public PortalPattern(char activator, MaterialData activatorType){
 		this.activator = activator;
@@ -37,12 +35,6 @@ public class PortalPattern {
 		this.materials.put(ch, match);
 	}
 	
-	public void setActivatorItem(ItemStack activator){
-		this.activatorItem = activator;
-	}
-	
-	public boolean needItemToActivate(){return (activatorItem != null);}
-	public ItemStack getActivatorItem(){return this.activatorItem;}
 	public List<String> getPattern(){return this.pattern;}
 	public HashMap<Character, MaterialData> getMatching(){return this.materials;}
 	public char getActivatorChar(){return this.activator;}
