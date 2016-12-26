@@ -10,22 +10,20 @@ import fr.poslovitch.dimensions.generator.DimensionGenerator;
  */
 public class Dimension {
 
-	private String name;
-	private DimensionGenerator generator;
-	private Portal portal;
-	private int dayDuration, nightDuration, eternalTime;
-	private boolean eternal;
-	private Effects effects;
+	String name;
+	DimensionGenerator generator;
+	Portal portal;
+	int dayDuration, nightDuration;
+	Effects effects;
 	
-	public Dimension(String name, DimensionGenerator generator, Portal portal, Effects effects){
+	// day/night duration in seconds. -1 for eternal.
+	public Dimension(String name, DimensionGenerator generator, Portal portal, Effects effects, int dayDuration, int nightDuration){
 		this.name = name;
 		this.generator = generator;
 		this.portal = portal;
 		this.effects = effects;
-		this.dayDuration = 1200;
-		this.nightDuration = 1200;
-		this.eternal = false;
-		this.eternalTime = 0;
+		this.dayDuration = dayDuration;
+		this.nightDuration = nightDuration;
 	}
 	
 	public String getName(){return this.name;}
@@ -34,21 +32,4 @@ public class Dimension {
 	public Effects getDimensionEffects(){return this.effects;}
 	public int getDayDuration(){return this.dayDuration;}
 	public int getNightDuration(){return this.nightDuration;}
-	public boolean isTimeEternal(){return this.eternal;}
-	public int getEternalTime(){return this.eternalTime;}
-	
-	public void setEternalTime(int time){
-		this.eternal = true;
-		this.eternalTime = time;
-	}
-	
-	public void setDayDuration(int time){
-		this.dayDuration = time;
-		this.eternal = false;
-	}
-	
-	public void setNightDuration(int time){
-		this.nightDuration = time;
-		this.eternal = false;
-	}
 }

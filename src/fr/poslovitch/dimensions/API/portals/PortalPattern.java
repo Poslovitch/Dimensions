@@ -13,12 +13,12 @@ import org.bukkit.material.MaterialData;
 public class PortalPattern {
 	
 	// Pattern
-	private ArrayList<String> pattern = new ArrayList<String>();
+	ArrayList<String> pattern = new ArrayList<String>();
 	// Materials
-	private HashMap<Character, MaterialData> materials = new HashMap<Character, MaterialData>();
+	HashMap<Character, MaterialData> materials = new HashMap<Character, MaterialData>();
 	// Activator
-	private char activator;
-	private MaterialData activatorType;
+	char activator;
+	MaterialData activatorType;
 	
 	public PortalPattern(char activator, MaterialData activatorType){
 		this.activator = activator;

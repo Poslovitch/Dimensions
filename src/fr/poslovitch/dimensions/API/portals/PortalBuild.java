@@ -9,9 +9,9 @@ import org.bukkit.inventory.ItemStack;
  */
 public class PortalBuild extends Portal{
 
-	private PortalPattern pattern;
-	private boolean requireIgnition, consumeItem;
-	private ItemStack activatorItem;
+	PortalPattern pattern;
+	boolean requireIgnition, consumeItem;
+	ItemStack activatorItem;
 	
 	public PortalBuild(PortalType type, PortalPattern pattern, boolean requireIgnition) {
 		super(type);

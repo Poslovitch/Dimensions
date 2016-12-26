@@ -1,8 +1,6 @@
 package fr.poslovitch.dimensions.biome;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 import org.bukkit.Material;
 import org.bukkit.material.MaterialData;
@@ -34,7 +32,6 @@ public class BiomeGenerationRules{
 	private Vegetation vegetationDistribution;
 	private boolean vegetationOnCliffs;
 	private Erosion erosion;
-	List<DBiome> beach;
 	
 	private int coalVeinSize, coalVeinTries, coalMinHeight, coalMaxHeight;
 	private int ironVeinSize, ironVeinTries, ironMinHeight, ironMaxHeight;
@@ -72,7 +69,6 @@ public class BiomeGenerationRules{
 		this.vegetationDistribution = Vegetation.NORMAL;
 		this.vegetationOnCliffs = false;
 		this.erosion = Erosion.NONE;
-		this.beach = new ArrayList<>();
 		this.coalVeinSize = 17;
 		this.coalVeinTries = 20;
 		this.coalMinHeight = 0;
@@ -292,10 +288,6 @@ public class BiomeGenerationRules{
 	public void setErosion(Erosion erosion){this.erosion = erosion;}
 	
 	public Erosion getErosion(){return this.erosion;}
-	
-	public void setBeachBiomes(List<DBiome> biomes){this.beach = biomes;}
-	
-	public List<DBiome> getBeachBiomes(){return this.beach;}
 	
 	public void setCoalSettings(int veinSize, int veinTries, int minHeight, int maxHeight){
 		this.coalVeinSize = veinSize;
