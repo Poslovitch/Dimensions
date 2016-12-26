@@ -20,7 +20,7 @@ public enum Climate {
 	TUNDRA(-5, 20),
 	ICY(-10, 30);
 	
-	int temperature, humidity;
+	private int temperature, humidity;
 	
 	private Climate(int temperature, int humidity){
 		this.temperature = temperature;

@@ -7,7 +7,7 @@ import org.bukkit.potion.PotionEffect;
 
 public class Effects {
 
-	List<PotionEffect> permanent, day, night, skyExposure, sunExposure, moonExposure, water;
+	private List<PotionEffect> permanent, day, night, skyExposure, sunExposure, moonExposure, water;
 	
 	public Effects(){
 		this.permanent = new ArrayList<PotionEffect>();

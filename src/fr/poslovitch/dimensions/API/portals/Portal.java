@@ -11,7 +11,7 @@ public class Portal {
 		WALL_PORTAL, GROUND_PORTAL, ITEM;
 	}
 	
-	PortalType type;
+	private PortalType type;
 	
 	public Portal(PortalType type){
 		this.type = type;

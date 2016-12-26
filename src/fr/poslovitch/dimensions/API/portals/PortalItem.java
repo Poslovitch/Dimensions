@@ -9,7 +9,7 @@ import org.bukkit.inventory.ItemStack;
  */
 public class PortalItem extends Portal{
 
-	ItemStack item;
+	private ItemStack item;
 	
 	public PortalItem(ItemStack item) {
 		super(PortalType.ITEM);

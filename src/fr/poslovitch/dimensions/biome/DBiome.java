@@ -12,13 +12,13 @@ import fr.poslovitch.dimensions.enums.Climate;
  */
 public class DBiome{
 	
-	String id;
-	Biome biome;
-	Climate climate;
-	BiomeGenerationRules generationRules;
-	BiomeSpawnRules spawnRules;
-	boolean allowRivers;
-	Effects biomeEffects;
+	private String id;
+	private Biome biome;
+	private Climate climate;
+	private BiomeGenerationRules generationRules;
+	private BiomeSpawnRules spawnRules;
+	private boolean allowRivers;
+	private Effects biomeEffects;
 	
 	public DBiome(String id, Biome biome, Climate climate, boolean allowRivers){
 		this.id = id;
