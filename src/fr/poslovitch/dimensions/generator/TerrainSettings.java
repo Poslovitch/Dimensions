@@ -34,7 +34,7 @@ public class TerrainSettings {
 	}
 
 	public TerrainSettings setSidewaysNoise(double noise){
-		this.sidewaysNoiseAmount = noise; //TODO MathHelper.clamp 0.0 - 1.0
+		this.sidewaysNoiseAmount = clamp(noise, 0.0, 1.0);
 		return this;
 	}
 
@@ -49,12 +49,12 @@ public class TerrainSettings {
 	}
 
 	public TerrainSettings setMinHeight(double minHeight){
-		this.minHeight = minHeight; //TODO MathHelper.clamp 0.0 - 255.0
+		this.minHeight = clamp(minHeight, 0.0, 255.0);
 		return this;
 	}
 
 	public TerrainSettings setMaxHeight(double maxHeight){
-		this.maxHeight = maxHeight; //TODO MathHelper.clamp 0.0 - 255.0
+		this.maxHeight = clamp(maxHeight, 0.0, 255.0);
 		return this;
 	}
 
@@ -68,5 +68,11 @@ public class TerrainSettings {
 		this.octaveWeights[4] = w4 * 6 * norm;
 		this.octaveWeights[5] = w5 * 3 * norm;
 		return this;
+	}
+
+	private double clamp(double x, double min, double max){
+		if (x < min) return min;
+		if (x > max) return max;
+		return x;
 	}
 }
